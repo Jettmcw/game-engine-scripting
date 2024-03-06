@@ -2,13 +2,15 @@ using System;
 using DG.Tweening;
 using UnityEngine;
 using static UnityEngine.Random;
+using static UnityEngine.FindObjectsSortMode;
+using static DG.Tweening.Ease;
 
 public class Bee : MonoBehaviour
 {
     //Makes the bee fly to a random flower & check if it has nectar
     public void CheckAnyFlower()
     {
-        Flower[] flowers = FindObjectsByType<Flower>(FindObjectsSortMode.None); //Gets an array of all the flowers in the scene
+        Flower[] flowers = FindObjectsByType<Flower>(None); //Gets an array of all the flowers in the scene
         Flower flower = flowers[Range(0, flowers.Length)]; //Selects a random flower from the array
         Move(flower, CheckFlower); //Moves to the random flower, and checks that flower
     }
@@ -16,7 +18,7 @@ public class Bee : MonoBehaviour
     //Makes the bee fly to a component in 1 second, and upon arrival, it performs a method using that component
     private void Move(Component target, Action<Component> action)
     {
-        transform.DOMove(target.transform.position, 1f).OnComplete(() => action(target)).SetEase(Ease.Linear);
+        transform.DOMove(target.transform.position, Range(0.3f, 1f)).OnComplete(() => action(target)).SetEase(Linear);
     }
 
     //Makes the bee try to take nectar from a flower, either returning to its hive or flying to another flower after

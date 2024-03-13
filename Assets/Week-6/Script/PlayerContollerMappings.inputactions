@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OpenDoor",
+                    "type": "Button",
+                    "id": "9f6920cd-04d2-4677-bb3d-4bbff59b3d24",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -271,6 +280,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "602f924f-cc9b-46b0-a0b8-6a0e0ff22759",
+                    "path": "<Keyboard>/#(O)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "OpenDoor",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
